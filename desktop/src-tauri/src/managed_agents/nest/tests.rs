@@ -46,7 +46,9 @@ fn nest_skill_contains_forum_workflow() {
     assert!(BUZZ_CLI_SKILL_MD.contains("forum root as kind `45001`"));
     assert!(BUZZ_CLI_SKILL_MD.contains("forum reply as kind `45003`"));
     assert!(BUZZ_CLI_SKILL_MD.contains("reply kind must match the thread root"));
-    assert!(BUZZ_CLI_SKILL_MD.contains("Never use kind `45003` beneath a kind-`9` root"));
+    assert!(BUZZ_CLI_SKILL_MD.contains("legacy kind-`40002`, and kind-`40008` diff stream roots"));
+    assert!(BUZZ_CLI_SKILL_MD
+        .contains("Never use kind `45003` beneath kind-`9`, kind-`40002`, or kind-`40008` roots"));
 }
 
 #[test]
