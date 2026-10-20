@@ -1,0 +1,9 @@
+# buzz: einzeln freigegebene Funde (JEL-31). Nur fuer FyreTrader/buzz, nie in andere Repos kopieren.
+# Alle Funde stammen aus block/buzz upstream (Compliance/GF, 21.10.2026). Keine eigenen Keys.
+# Nur Working-Tree-Fingerprints: Hook (protect --staged) und CI (upstream/main..HEAD) pruefen
+# nur neue Commits, die alte Upstream-History wird deshalb nicht allowlisted.
+# Justfile:333 BUZZ_PRIVATE_KEY = oeffentliche Upstream-Testidentitaet 'tyler' (local only), Justfile:336 RELAY_OWNER_PUBKEY = oeffentlicher Key.
+Justfile:generic-api-key:333
+Justfile:generic-api-key:336
+crates/buzz-db/src/feed.rs:generic-api-key:582
+desktop/src-tauri/src/managed_agents/agent_events.rs:generic-api-key:164

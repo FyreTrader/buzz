@@ -1,0 +1,25 @@
+# gitleaks (JEL-31): prueft nur neue Commits gegenueber block/buzz upstream/main,
+# die alte Upstream-History wird nicht allowlisted. Config: .gitleaks.toml + .gitleaksignore.
+name: gitleaks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: upstream (block/buzz) fetchen
+        run: |
+          git remote add upstream https://github.com/block/buzz.git || git remote set-url upstream https://github.com/block/buzz.git
+          git fetch --no-tags upstream main
+          git merge-base upstream/main HEAD
+      - name: gitleaks (CLI, ohne Lizenz-Key)
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz | tar xz gitleaks
+          ./gitleaks git --redact=100 --no-banner --config .gitleaks.toml --exit-code 1 --log-opts="upstream/main..HEAD" .

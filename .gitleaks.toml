@@ -1,0 +1,40 @@
+title = "Jelmarson gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "jelmarson-credential-paths"
+description = "Credential-Dateien (migration/secrets/, *-credentials.md) duerfen nicht committet werden"
+path = '''(^|/)(migration/secrets/.*|[^/]*-credentials\.md)$'''
+
+# buzz (Fork von block/buzz): Allowlist NUR für Upstream-Testdaten, abgeleitet aus den
+# tatsächlichen Fundpfaden (gitleaks v8.21.2, 21.10.2026). Explizite Verzeichnisse, keine
+# repo-weiten Wildcards. Funde in produktivem Code (crates/*/src, desktop/src, scripts/, Root)
+# sind bewusst NICHT abgedeckt -> Prüfung Compliance.
+[allowlist]
+description = "buzz – Upstream-Test-Fixtures, testdata, e2e, NIP-Docs, Vendor-Testvektoren"
+paths = [
+  '''^mobile/ios/BuzzPushKit/Sources/CSecp256k1/vendor/src/modules/silentpayments/bip352_send_and_receive_test_vectors\.json$''',
+  '''^docs/nips/NIP-[A-Z]{2}\.md$''',
+  '''^desktop/tests/e2e/''',
+  '''^desktop/tests/helpers/''',
+  '''^desktop/src-tauri/src/testdata/''',
+  '''^admin-web/tests/''',
+  '''^benchmarks/harbor-buzz-orchestra/tests/fixtures/''',
+  '''^crates/buzz-backend-kubernetes/tests/fixtures/''',
+  '''^crates/buzz-push-gateway/tests/fixtures/''',
+  '''^crates/buzz-acp/tests/''',
+  '''^crates/buzz-relay/src/nip_fi_resolver/tests/''',
+  '''^deploy/charts/buzz/tests/''',
+  '''^mobile/test/''',
+  '''^mobile/ios/BuzzPushKit/Tests/''',
+  # Upstream-Testpfade (Freigabe Compliance JEL-31, 21.10.2026)
+  '''^desktop/src/testing/''',
+  '''^desktop/src/.*\.test\.mjs$''',
+  '''^desktop/src-tauri/src/.*_tests\.rs$''',
+  '''^scripts/(setup-desktop-test-data|test-k8s-provider-release|e2e-git-perms)\.sh$''',
+  '''^deploy/charts/buzz/examples/''',
+  '''^(TESTING|AGENTS)\.md$''',
+  '''^NIP-[A-Z]{2}\.md$''',
+]
