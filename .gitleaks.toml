@@ -29,4 +29,12 @@ paths = [
   '''^deploy/charts/buzz/tests/''',
   '''^mobile/test/''',
   '''^mobile/ios/BuzzPushKit/Tests/''',
+  # Upstream-Testpfade (Freigabe Compliance JEL-31, 21.10.2026)
+  '''^desktop/src/testing/''',
+  '''^desktop/src/.*\.test\.mjs$''',
+  '''^desktop/src-tauri/src/.*_tests\.rs$''',
+  '''^scripts/(setup-desktop-test-data|test-k8s-provider-release|e2e-git-perms)\.sh$''',
+  '''^deploy/charts/buzz/examples/''',
+  '''^(TESTING|AGENTS)\.md$''',
+  '''^NIP-[A-Z]{2}\.md$''',
 ]

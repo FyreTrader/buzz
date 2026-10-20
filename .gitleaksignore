@@ -1,0 +1,16 @@
+# buzz: einzeln freigegebene Funde (JEL-31). Nur fuer FyreTrader/buzz, nie in andere Repos kopieren.
+# Upstream-Testmodule in produktivem Code und Justfile RELAY_OWNER_PUBKEY (oeffentlicher Pubkey):
+058c4b92a9b0c481527c748362221150a1aa30a1:crates/sprout-db/src/feed.rs:generic-api-key:265
+058c4b92a9b0c481527c748362221150a1aa30a1:crates/sprout-db/src/workflow.rs:generic-api-key:1135
+168c1ca8de1b77016a2474b35f9f673d54426eb0:desktop/src-tauri/src/managed_agents/backend.rs:generic-api-key:431
+168c1ca8de1b77016a2474b35f9f673d54426eb0:desktop/src-tauri/src/managed_agents/backend.rs:generic-api-key:439
+54638ff4bb5af2d3d3759b44118b43052f814bb1:Justfile:generic-api-key:282
+d256935c3620f30ae54e9d02e48adc6ee0bc578f:desktop/src-tauri/src/commands/personas.rs:generic-api-key:1023
+d256935c3620f30ae54e9d02e48adc6ee0bc578f:desktop/src-tauri/src/managed_agents/agent_events.rs:generic-api-key:142
+# Justfile:279 BUZZ_PRIVATE_KEY: oeffentliche Upstream-Testidentitaet 'tyler' (identisch mit desktop/tests/helpers/bridge.ts TEST_IDENTITIES), nur Rezept mesh-dev-fresh, laut Kommentar local only:
+54638ff4bb5af2d3d3759b44118b43052f814bb1:Justfile:generic-api-key:279
+# Arbeitsstand (gitleaks dir / Working Tree), dieselben Funde an aktueller Position:
+Justfile:generic-api-key:333
+Justfile:generic-api-key:336
+crates/buzz-db/src/feed.rs:generic-api-key:582
+desktop/src-tauri/src/managed_agents/agent_events.rs:generic-api-key:164
